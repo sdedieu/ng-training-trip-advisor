@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "trip-kaizen-sor": "apps/trip-kaizen-sor",
+    "trip-kaizen-sor-e2e": "apps/trip-kaizen-sor-e2e"
+  }
+}
