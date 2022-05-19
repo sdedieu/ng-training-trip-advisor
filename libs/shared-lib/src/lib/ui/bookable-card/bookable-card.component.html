@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-image">
+        <img [src]="bookable.image" alt="Photo of a Shiba Inu">
+    </div>
+    <div class="card-content">
+        <div class="card-content-top">
+            <h4>{{bookable?.name}}</h4>
+            <p>{{bookable?.location}}</p>
+        </div>
+        <div class="card-content-bottom">
+            <ng-content></ng-content>
+    </div>
+</div>

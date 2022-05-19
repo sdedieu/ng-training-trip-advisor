@@ -1,1 +1,16 @@
+<mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="app-title">Trip Kaizen'sor</h1>
+</mat-toolbar>
 
+<mat-sidenav-container class="sidenav-container" [style.marginTop.px]="small ? 56 : 0">
+    <mat-sidenav #snav [mode]="small ? 'over' : 'side'" [fixedInViewport]="small" fixedTopGap="56" [opened]="!small">
+       <tks-side-nav></tks-side-nav>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="sidenav-content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

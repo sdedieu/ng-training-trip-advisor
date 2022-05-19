@@ -1,0 +1,20 @@
+<tks-bookable-card [bookable]="$hotel">
+    <div class="card-content-bottom">
+        <div class="card-content-bottom-left">
+            <div class="price">
+                <mat-icon *ngFor="let p of $hotel?.euros">euro</mat-icon>
+            </div>
+            <div class="stars">
+                <span *ngFor="let s of $hotel?.stars">
+                    <mat-icon class="icon" *ngIf="s === 2">star</mat-icon>
+                    <mat-icon class="icon" *ngIf="s === 1">star_half</mat-icon>
+                </span>
+                <span class="reviews">{{$hotel?.reviews}} reviews</span>
+            </div>
+        </div>
+
+        <div class="card-content-bottom-right">
+            <button mat-flat-button color="primary">Book a room</button>
+        </div>
+    </div>
+</tks-bookable-card>

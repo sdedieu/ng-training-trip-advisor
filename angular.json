@@ -2,6 +2,10 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "hotel": "apps/hotel",
+    "hotel-e2e": "apps/hotel-e2e",
+    "hotel-lib": "libs/hotel-lib",
+    "shared-lib": "libs/shared-lib",
     "trip-kaizen-sor": "apps/trip-kaizen-sor",
     "trip-kaizen-sor-e2e": "apps/trip-kaizen-sor-e2e"
   }

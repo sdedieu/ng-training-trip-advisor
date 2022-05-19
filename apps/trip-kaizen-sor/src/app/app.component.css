@@ -1,0 +1,14 @@
+h1.app-title {
+    margin-left: 8px;
+}
+
+.sidenav-container {
+    min-height: calc(100vh - 64px);
+}
+
+.sidenav-container .sidenav-content {
+    height: 100%;
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: rgba(82, 212, 179, 0.05);
+    min-height: calc(100vh - 64px);
+}
