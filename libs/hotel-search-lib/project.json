@@ -5,7 +5,9 @@
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/hotel-lib"],
+      "outputs": [
+        "coverage/libs/hotel-lib"
+      ],
       "options": {
         "jestConfig": "libs/hotel-lib/jest.config.ts",
         "passWithNoTests": true
