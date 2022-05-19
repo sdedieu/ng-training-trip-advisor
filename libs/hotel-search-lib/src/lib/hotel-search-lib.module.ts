@@ -14,8 +14,12 @@ import { HotelSearchComponent } from './hotel-search/hotel-search.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedLibModule, UiModule } from '@trip-kaizen-sor-workspace/shared-lib';
+import { HotelSearchService } from './services/hotel-search.service';
 
 @NgModule({
+  providers: [
+    HotelSearchService
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -33,10 +37,10 @@ import { SharedLibModule, UiModule } from '@trip-kaizen-sor-workspace/shared-lib
   declarations: [HotelCardComponent, HotelSearchComponent],
   exports: [HotelCardComponent, HotelSearchComponent],
 })
-export class HotelLibModule {
-    static forRoot(): ModuleWithProviders<HotelLibModule> {
+export class HotelSearchLibModule {
+    static forRoot(): ModuleWithProviders<HotelSearchLibModule> {
       return {
-        ngModule: HotelLibModule,
+        ngModule: HotelSearchLibModule,
         providers: []
       }
     }

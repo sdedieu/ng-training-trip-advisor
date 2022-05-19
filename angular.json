@@ -4,7 +4,7 @@
   "projects": {
     "hotel": "apps/hotel",
     "hotel-e2e": "apps/hotel-e2e",
-    "hotel-lib": "libs/hotel-lib",
+    "hotel-search-lib": "libs/hotel-search-lib",
     "shared-lib": "libs/shared-lib",
     "trip-kaizen-sor": "apps/trip-kaizen-sor",
     "trip-kaizen-sor-e2e": "apps/trip-kaizen-sor-e2e"

@@ -6,7 +6,7 @@ import { Restaurant } from '../models/restaurant';
 @Injectable({
   providedIn: 'root'
 })
-export class RestaurantService {
+export class RestaurantSearchService {
 
   constructor(private http: HttpClient) { }
 

@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@trip-kaizen-sor-workspace/hotel-lib": ["libs/hotel-lib/src/index.ts"],
+      "@trip-kaizen-sor-workspace/hotel-search-lib": ["libs/hotel-search-lib/src/index.ts"],
       "@trip-kaizen-sor-workspace/shared-lib": ["libs/shared-lib/src/index.ts"]
     }
   },

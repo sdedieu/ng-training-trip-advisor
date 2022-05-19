@@ -3,10 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Hotel } from '../models/hotel';
 
-@Injectable({
-  providedIn: 'any'
-})
-export class HotelService {
+@Injectable()
+export class HotelSearchService {
 
   constructor(private http: HttpClient) { }
 

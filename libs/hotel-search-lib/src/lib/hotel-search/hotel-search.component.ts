@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  tap, debounceTime, switchMap, catchError } from 'rxjs/operators';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { Hotel } from '../models/hotel';
-import { HotelService } from '../services/hotel.service';
+import { HotelSearchService } from '../services/hotel-search.service';
 
 @Component({
   selector: 'tks-hotel-search',
@@ -17,7 +17,7 @@ export class HotelSearchComponent implements OnInit {
   search$ = new BehaviorSubject<string>('');
 
   constructor(
-    private hotelService: HotelService
+    private hotelSearchService: HotelSearchService
   ) {}
 
   ngOnInit(): void {
@@ -25,7 +25,7 @@ export class HotelSearchComponent implements OnInit {
     this.hotels$ = this.search$.pipe(
       tap(() => this.isLoading$.next(true)),
       debounceTime(500),
-      switchMap(search => this.hotelService.find(search, search, this.urgent).pipe(
+      switchMap(search => this.hotelSearchService.find(search, search, this.urgent).pipe(
         catchError(() => of([]))
       )),
       tap(() => this.isLoading$.next(false))
