@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {  tap, debounceTime, switchMap, catchError } from 'rxjs/operators';
-import { Observable, of, BehaviorSubject } from 'rxjs';
+import { tap, debounceTime, switchMap, catchError, shareReplay, map, scan, mergeMap, filter } from 'rxjs/operators';
+import { Observable, of, BehaviorSubject, EMPTY } from 'rxjs';
 import { Hotel } from '../models/hotel';
 import { HotelSearchService } from '../services/hotel-search.service';
 
@@ -10,29 +10,41 @@ import { HotelSearchService } from '../services/hotel-search.service';
   styleUrls: ['./hotel-search.component.css'],
 })
 export class HotelSearchComponent implements OnInit {
-  hotels$: Observable<Hotel[]> = of([]);
+  hotels$: Observable<Hotel[]> = EMPTY;
   search = '';
   urgent = false;
   isLoading$ = new BehaviorSubject<boolean>(false);
   search$ = new BehaviorSubject<string>('');
+  page$ = new BehaviorSubject<number>(1);
+  limit = 12;
 
   constructor(
     private hotelSearchService: HotelSearchService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    console.log('ngOnInit', this.urgent);
-    this.hotels$ = this.search$.pipe(
+    this.isLoading$.next(true);
+    this.hotels$ = this.page$.pipe(
+      filter(page => page < 4),
       tap(() => this.isLoading$.next(true)),
-      debounceTime(500),
-      switchMap(search => this.hotelSearchService.find(search, search, this.urgent).pipe(
+      mergeMap(page => this.hotelSearchService.find('', page, this.limit, this.urgent).pipe(
         catchError(() => of([]))
       )),
-      tap(() => this.isLoading$.next(false))
+      scan((all: Hotel[], curr: Hotel[]) => all.concat(curr), []),
+      switchMap(hotels => this.search$.pipe(
+        tap(() => this.isLoading$.next(true)),
+        map(search => hotels.filter(hotel => hotel.name.toLowerCase().includes(search.toLowerCase()))),
+        tap(() => this.isLoading$.next(false)),
+      ))
     );
   }
 
-  dispatchSearch()  {
+  dispatchSearch() {
     this.search$.next(this.search);
+  }
+
+  onScroll() {
+    console.log('okey');
+    this.page$.next(this.page$.value + 1);
   }
 }

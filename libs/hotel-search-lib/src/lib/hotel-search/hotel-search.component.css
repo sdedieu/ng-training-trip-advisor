@@ -1,3 +1,7 @@
+.page {
+    position: relative;
+}
+
 .card {
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     text-align: center;
@@ -20,6 +24,7 @@
 
 .grid {
     margin-top: 2rem;
+    margin-bottom: 2rem;
     position: relative;
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -38,11 +43,9 @@
     }
   }
 
-.grid .spinner {
-    position: absolute;
-    margin: auto;
-    z-index: 30;
-    left: 0;
-    right: 0;
-    top: 8rem;
+.spinner-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

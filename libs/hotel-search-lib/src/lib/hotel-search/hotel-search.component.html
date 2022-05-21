@@ -1,20 +1,21 @@
-<ng-container *ngIf="hotels$ | async as hotels">
-    <div class="card">
-        <h2>Hotel search</h2>
-        <section class="search-section">
-            <mat-form-field class="search-form-field" appearance="fill">
-                <mat-label>Hotel name</mat-label>
-                <input matInput type="text" [(ngModel)]="search" (ngModelChange)="dispatchSearch()">
-                <button *ngIf="search" matSuffix mat-icon-button aria-label="Clear"
-                    (click)="search=''; dispatchSearch()">
-                    <mat-icon>close</mat-icon>
-                </button>
-            </mat-form-field>
-            <mat-checkbox [(ngModel)]="urgent" class="example-margin">Urgent !</mat-checkbox>
-        </section>
-    </div>
-    <div class="grid">
-        <mat-spinner *ngIf="isLoading$ | async" class="spinner"></mat-spinner>
+<div class="card">
+    <h2>Hotel search</h2>
+    <section class="search-section">
+        <mat-form-field class="search-form-field" appearance="fill">
+            <mat-label>Hotel name</mat-label>
+            <input matInput type="text" [(ngModel)]="search" (ngModelChange)="dispatchSearch()">
+            <button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="search=''; dispatchSearch()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-checkbox [(ngModel)]="urgent" class="example-margin">Urgent !</mat-checkbox>
+    </section>
+</div>
+<div class="grid" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+    <ng-container *ngIf="hotels$ | async as hotels">
         <tks-hotel-card *ngFor="let hotel of hotels" [hotel]="hotel"></tks-hotel-card>
-    </div>
-</ng-container>
+    </ng-container>
+</div>
+<div class="spinner-container" *ngIf="isLoading$ | async">
+    <mat-spinner class="spinner"></mat-spinner>
+</div>

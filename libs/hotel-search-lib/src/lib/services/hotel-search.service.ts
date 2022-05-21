@@ -8,7 +8,9 @@ export class HotelSearchService {
 
   constructor(private http: HttpClient) { }
 
-  find(from: string, to: string, urgent: boolean): Observable<Hotel[]> {
-    return this.http.get<Hotel[]>(`/hotels?from=${from}@to=${to}&urgent=${urgent}`);
+  find(search: string, page: number, limit: number, urgent: boolean): Observable<Hotel[]> {
+    const from = (page - 1) * limit;
+    const to = (page * limit) - 1;
+    return this.http.get<Hotel[]>(`/hotels?search=${search}&from=${from}&to=${to}&urgent=${urgent}`);
   }
 }

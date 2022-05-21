@@ -1,5 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -22,6 +23,7 @@ import { HotelSearchService } from './services/hotel-search.service';
   ],
   imports: [
     CommonModule,
+    InfiniteScrollModule,
     HttpClientModule,
     MatInputModule,
     MatIconModule,
