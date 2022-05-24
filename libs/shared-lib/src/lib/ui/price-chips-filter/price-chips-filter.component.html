@@ -1,0 +1,5 @@
+<mat-chip-list aria-label="Price selection">
+    <mat-chip *ngFor="let p of elements" [class.selected]="prices.includes(p.length)" (click)="updatePrices(p.length)">
+        <mat-icon *ngFor="let i of p">euro</mat-icon>
+    </mat-chip>
+</mat-chip-list>

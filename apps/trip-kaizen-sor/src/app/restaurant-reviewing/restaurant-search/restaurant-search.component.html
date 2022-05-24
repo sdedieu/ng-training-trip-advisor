@@ -12,7 +12,7 @@
             </mat-form-field>
             <mat-checkbox [(ngModel)]="urgent" class="example-margin">Urgent !</mat-checkbox>
         </section>
-    </div>
+       </div>
     <div class="grid">
         <mat-spinner *ngIf="isLoading$ | async" class="spinner"></mat-spinner>
         <tks-restaurant-card *ngFor="let restaurant of restaurants" [restaurant]="restaurant"></tks-restaurant-card>

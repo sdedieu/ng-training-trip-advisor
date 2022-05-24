@@ -1,0 +1,19 @@
+.mat-chip, .mat-chip.selected:hover {
+    cursor: pointer;
+    background-color: #fff;
+    border: 0.125rem solid #52d4b3;
+    color: #52d4b3;
+}
+
+.mat-chip.selected, .mat-chip.selected:focus,
+.mat-chip.selected:active, .mat-chip:hover {
+    background-color: #52d4b3;
+    border: 0.125rem solid #52d4b3;
+    color: #fff;
+}
+
+.mat-chip .mat-icon {
+    font-size: 0.825rem;
+    width: 0.75rem;
+    height: 0.825rem;
+}

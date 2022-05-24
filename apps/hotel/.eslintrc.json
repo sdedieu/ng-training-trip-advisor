@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "tks-workspace",
+            "prefix": "tks",
             "style": "kebab-case"
           }
         ]
