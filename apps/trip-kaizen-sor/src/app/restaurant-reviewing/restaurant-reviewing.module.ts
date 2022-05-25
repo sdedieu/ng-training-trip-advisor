@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { RestaurantReviewingRoutingModule } from './restaurant-reviewing-routing.module';
 import { RestaurantReviewingComponent } from './restaurant-reviewing.component';
 import { RestaurantSearchComponent } from './restaurant-search/restaurant-search.component';
 import { FormsModule } from '@angular/forms';
@@ -14,6 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
 import { UiModule } from '@trip-kaizen-sor-workspace/shared-lib';
+import { RouterModule } from '@angular/router';
+import { RESTAURANT_REVIEWING_ROUTES } from './restaurant-reviewing.routes';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { UiModule } from '@trip-kaizen-sor-workspace/shared-lib';
   ],
   imports: [
     CommonModule,
-    RestaurantReviewingRoutingModule,
+    RouterModule.forChild(RESTAURANT_REVIEWING_ROUTES),
     MatInputModule,
     MatIconModule,
     MatProgressSpinnerModule,

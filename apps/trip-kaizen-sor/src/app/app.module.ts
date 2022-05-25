@@ -5,18 +5,17 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { APP_ROUTES } from './routes';
-import { SideNavComponent } from './side-nav/side-nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
-import { NavLinkComponent } from './side-nav/nav-link/nav-link.component';
 import { SharedLibModule } from '@trip-kaizen-sor-workspace/shared-lib';
+import { SideNavModule } from './side-nav/side-nav.module';
 
 @NgModule({
-  declarations: [AppComponent, SideNavComponent, NavLinkComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -27,6 +26,7 @@ import { SharedLibModule } from '@trip-kaizen-sor-workspace/shared-lib';
     MatIconModule,
     MatListModule,
     MatButtonModule,
+    SideNavModule,
     SharedLibModule
   ],
   bootstrap: [AppComponent],

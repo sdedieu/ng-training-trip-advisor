@@ -44,7 +44,6 @@ export class HotelSearchComponent implements OnInit {
   }
 
   onScroll() {
-    console.log('okey');
     this.page$.next(this.page$.value + 1);
   }
 }
