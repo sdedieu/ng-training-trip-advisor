@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { tap, debounceTime, switchMap, catchError, shareReplay, map, scan, mergeMap, filter } from 'rxjs/operators';
+import { tap, switchMap, catchError, map, scan, mergeMap, filter } from 'rxjs/operators';
 import { Observable, of, BehaviorSubject, EMPTY } from 'rxjs';
 import { Hotel } from '../models/hotel';
 import { HotelSearchService } from '../services/hotel-search.service';
@@ -12,7 +12,6 @@ import { HotelSearchService } from '../services/hotel-search.service';
 export class HotelSearchComponent implements OnInit {
   hotels$: Observable<Hotel[]> = EMPTY;
   search = '';
-  urgent = false;
   isLoading$ = new BehaviorSubject<boolean>(false);
   search$ = new BehaviorSubject<string>('');
   page$ = new BehaviorSubject<number>(1);
@@ -27,10 +26,10 @@ export class HotelSearchComponent implements OnInit {
     this.hotels$ = this.page$.pipe(
       filter(page => page < 4),
       tap(() => this.isLoading$.next(true)),
-      mergeMap(page => this.hotelSearchService.find('', page, this.limit, this.urgent).pipe(
+      mergeMap(page => this.hotelSearchService.findAll(page, this.limit).pipe(
+        map(page => page.items),
         catchError(() => of([]))
       )),
-      scan((all: Hotel[], curr: Hotel[]) => all.concat(curr), []),
       switchMap(hotels => this.search$.pipe(
         tap(() => this.isLoading$.next(true)),
         map(search => hotels.filter(hotel => hotel.name.toLowerCase().includes(search.toLowerCase()))),
