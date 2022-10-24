@@ -30,6 +30,7 @@ export class HotelSearchComponent implements OnInit {
         map(page => page.items),
         catchError(() => of([]))
       )),
+      scan((all: Hotel[], curr: Hotel[]) => all.concat(curr), []),
       switchMap(hotels => this.search$.pipe(
         tap(() => this.isLoading$.next(true)),
         map(search => hotels.filter(hotel => hotel.name.toLowerCase().includes(search.toLowerCase()))),
