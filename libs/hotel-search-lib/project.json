@@ -1,15 +1,15 @@
 {
   "projectType": "library",
-  "sourceRoot": "libs/hotel-lib/src",
+  "sourceRoot": "libs/hotel-search-lib/src",
   "prefix": "tks",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": [
-        "coverage/libs/hotel-lib"
+        "coverage/libs/hotel-search-lib"
       ],
       "options": {
-        "jestConfig": "libs/hotel-lib/jest.config.ts",
+        "jestConfig": "libs/hotel-search-lib/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -17,8 +17,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/hotel-lib/**/*.ts",
-          "libs/hotel-lib/**/*.html"
+          "libs/hotel-search-lib/**/*.ts",
+          "libs/hotel-search-lib/**/*.html"
         ]
       }
     }
