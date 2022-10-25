@@ -1,0 +1,19 @@
+.card {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    text-align: center;
+    font-family: arial;
+    border-radius: 0.375rem;
+    background-color: #fff;
+    padding: 0.75rem 1.25rem 0.75rem 1.25rem;
+}
+
+.search-section {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.search-section .search-form-field {
+    margin: 1rem 1rem 1rem 1rem;
+    width: 80%;
+}

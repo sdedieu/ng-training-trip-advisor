@@ -27,7 +27,7 @@ import { SideNavModule } from './side-nav/side-nav.module';
     MatListModule,
     MatButtonModule,
     SideNavModule,
-    SharedLibModule
+    SharedLibModule,
   ],
   bootstrap: [AppComponent],
 })

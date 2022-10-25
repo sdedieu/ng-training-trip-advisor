@@ -18,6 +18,11 @@ export class SideNavComponent implements OnInit {
       name: 'Restaurants',
       link: '/restaurants',
       icon: 'restaurant',
+    },
+    {
+      name: 'Hotels',
+      link: '/hotels',
+      icon: 'hotel',
     }
   ];
 
