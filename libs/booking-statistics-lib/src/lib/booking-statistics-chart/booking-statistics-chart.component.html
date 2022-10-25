@@ -1,0 +1,15 @@
+<div class="chart-container">
+    <div id="chart"></div>
+</div>
+
+<div class="lists-grid">
+        <trip-kaizen-sor-workspace-booking-statistics-list class="list" type="restaurant" 
+            [bookings]="restaurantBookings$ | async" 
+            (add)="addedRestaurants$.next(addedRestaurants$.value.concat($event))">
+        </trip-kaizen-sor-workspace-booking-statistics-list>
+        
+        <trip-kaizen-sor-workspace-booking-statistics-list class="list" type="hotel" 
+            [bookings]="hotelBookings$ | async" 
+            (add)="addedHotels$.next(addedHotels$.value.concat($event))">
+        </trip-kaizen-sor-workspace-booking-statistics-list>
+</div>

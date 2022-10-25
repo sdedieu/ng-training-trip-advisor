@@ -1,0 +1,24 @@
+div.chart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lists-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 4rem;
+}
+
+@media (min-width: 768px) { 
+    .lists-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    }
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+}

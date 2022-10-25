@@ -5,19 +5,14 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:webpack-browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/hotel",
         "index": "apps/hotel/src/index.html",
         "main": "apps/hotel/src/main.ts",
         "polyfills": "apps/hotel/src/polyfills.ts",
         "tsConfig": "apps/hotel/tsconfig.app.json",
-        "assets": [
-          "apps/hotel/src/favicon.ico",
-          "apps/hotel/src/assets"
-        ],
+        "assets": ["apps/hotel/src/favicon.ico", "apps/hotel/src/assets"],
         "styles": [
           "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
           "apps/hotel/src/styles.css"
@@ -65,7 +60,7 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@nrwl/angular:webpack-server",
+      "executor": "@nrwl/angular:webpack-dev-server",
       "configurations": {
         "production": {
           "browserTarget": "hotel:build:production"
@@ -90,17 +85,12 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "apps/hotel/**/*.ts",
-          "apps/hotel/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/hotel/**/*.ts", "apps/hotel/**/*.html"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/hotel"
-      ],
+      "outputs": ["coverage/apps/hotel"],
       "options": {
         "jestConfig": "apps/hotel/jest.config.ts",
         "passWithNoTests": true

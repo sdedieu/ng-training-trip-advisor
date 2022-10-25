@@ -2,6 +2,9 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "booking-statistics": "apps/booking-statistics",
+    "booking-statistics-e2e": "apps/booking-statistics-e2e",
+    "booking-statistics-lib": "libs/booking-statistics-lib",
     "hotel": "apps/hotel",
     "hotel-e2e": "apps/hotel-e2e",
     "hotel-search-lib": "libs/hotel-search-lib",

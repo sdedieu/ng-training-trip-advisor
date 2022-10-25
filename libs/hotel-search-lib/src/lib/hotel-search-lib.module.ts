@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedLibModule, UiModule } from '@trip-kaizen-sor-workspace/shared-lib';
 import { HotelSearchService } from './services/hotel-search.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   providers: [
@@ -26,6 +27,7 @@ import { HotelSearchService } from './services/hotel-search.service';
     InfiniteScrollModule,
     HttpClientModule,
     MatInputModule,
+    MatFormFieldModule,
     MatIconModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,
