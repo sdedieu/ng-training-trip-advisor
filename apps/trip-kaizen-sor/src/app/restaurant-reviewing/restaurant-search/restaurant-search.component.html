@@ -12,6 +12,7 @@
             </mat-form-field>
             <mat-checkbox [(ngModel)]="urgent" class="example-margin">Urgent !</mat-checkbox>
         </section>
+        <tks-price-chips-filter (selectionChange)="dispatchSelectedPrices($event)"></tks-price-chips-filter>
        </div>
     <div class="grid">
         <mat-spinner *ngIf="isLoading$ | async" class="spinner"></mat-spinner>

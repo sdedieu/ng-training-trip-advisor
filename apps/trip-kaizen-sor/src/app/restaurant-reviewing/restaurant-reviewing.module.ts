@@ -15,6 +15,10 @@ import { RestaurantCardComponent } from './restaurant-card/restaurant-card.compo
 import { UiModule } from '@trip-kaizen-sor-workspace/shared-lib';
 import { RouterModule } from '@angular/router';
 import { RESTAURANT_REVIEWING_ROUTES } from './restaurant-reviewing.routes';
+import { StoreModule } from '@ngrx/store';
+import * as fromRestaurantReviewing from './+state/restaurant-reviewing.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { RestaurantReviewingEffects } from './+state/restaurant-reviewing.effects';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,9 @@ import { RESTAURANT_REVIEWING_ROUTES } from './restaurant-reviewing.routes';
     MatButtonModule,
     MatCardModule,
     FormsModule,
-    UiModule
+    UiModule,
+    StoreModule.forFeature(fromRestaurantReviewing.restaurantReviewingFeatureKey, fromRestaurantReviewing.reducer),
+    EffectsModule.forFeature([RestaurantReviewingEffects])
   ],
 })
 export class RestaurantReviewingModule {}

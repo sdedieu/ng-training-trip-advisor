@@ -13,6 +13,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedLibModule } from '@trip-kaizen-sor-workspace/shared-lib';
 import { SideNavModule } from './side-nav/side-nav.module';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './+state';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +33,9 @@ import { SideNavModule } from './side-nav/side-nav.module';
     MatButtonModule,
     SideNavModule,
     SharedLibModule,
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   bootstrap: [AppComponent],
 })

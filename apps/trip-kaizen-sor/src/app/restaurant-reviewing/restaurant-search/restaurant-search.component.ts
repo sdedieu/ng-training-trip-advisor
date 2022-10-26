@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, catchError, debounceTime, Observable, of, switchMap, tap } from 'rxjs';
+import { Component, OnInit, inject } from '@angular/core';
+import { BehaviorSubject, EMPTY, Observable, of } from 'rxjs';
 import { Restaurant } from '../models/restaurant';
+import { Store } from '@ngrx/store';
+import { selectIsLoading, selectFilteredRestaurants , State, loadRestaurants, savePrices } from '../+state';
 
 @Component({
   selector: 'tks-restaurant-search',
@@ -11,21 +13,23 @@ export class RestaurantSearchComponent implements OnInit {
   restaurants$: Observable<Restaurant[]> = of([]);
   search = '';
   urgent = false;
-  isLoading$ = new BehaviorSubject<boolean>(false);
+  isLoading$: Observable<boolean> = EMPTY;
   search$ = new BehaviorSubject<string>('');
-
-  constructor() {}
+  
+  private _store = inject(Store<State>);
 
   ngOnInit(): void {
-    this.restaurants$ = this.search$.pipe(
-      tap(() => this.isLoading$.next(true)),
-      debounceTime(500),
-      switchMap(search => of([])),
-      tap(() => this.isLoading$.next(false))
-    );
+    this.isLoading$ = this._store.select(selectIsLoading);
+    this.restaurants$ = this._store.select(selectFilteredRestaurants)
+
+    this.dispatchSearch()
   }
 
-  dispatchSearch()  {
-    this.search$.next(this.search);
+  dispatchSearch() {
+    this._store.dispatch(loadRestaurants({ search: this.search, urgent: this.urgent }));
   }
+
+  dispatchSelectedPrices(prices: number[]) {
+    this._store.dispatch(savePrices({ prices }));
+}
 }
