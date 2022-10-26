@@ -1,4 +1,5 @@
 {
+  "name": "hotel-search-lib",
   "projectType": "library",
   "sourceRoot": "libs/hotel-search-lib/src",
   "prefix": "tks",

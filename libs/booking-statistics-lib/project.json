@@ -1,4 +1,5 @@
 {
+  "name": "booking-statistics-lib",
   "projectType": "library",
   "sourceRoot": "libs/booking-statistics-lib/src",
   "prefix": "trip-kaizen-sor-workspace",

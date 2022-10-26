@@ -1,4 +1,5 @@
 {
+  "name": "hotel",
   "projectType": "application",
   "sourceRoot": "apps/hotel/src",
   "prefix": "tks",

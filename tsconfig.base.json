@@ -21,6 +21,9 @@
       "@trip-kaizen-sor-workspace/hotel-search-lib": [
         "libs/hotel-search-lib/src/index.ts"
       ],
+      "@trip-kaizen-sor-workspace/restaurant-search-lib": [
+        "libs/restaurant-search-lib/src/index.ts"
+      ],
       "@trip-kaizen-sor-workspace/shared-lib": ["libs/shared-lib/src/index.ts"]
     }
   },

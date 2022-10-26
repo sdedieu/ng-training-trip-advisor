@@ -10,9 +10,7 @@ describe('RestaurantCardComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [RestaurantCardComponent],
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(RestaurantCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

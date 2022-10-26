@@ -8,6 +8,7 @@
     "hotel": "apps/hotel",
     "hotel-e2e": "apps/hotel-e2e",
     "hotel-search-lib": "libs/hotel-search-lib",
+    "restaurant-search-lib": "libs/restaurant-search-lib",
     "shared-lib": "libs/shared-lib",
     "trip-kaizen-sor": "apps/trip-kaizen-sor",
     "trip-kaizen-sor-e2e": "apps/trip-kaizen-sor-e2e"

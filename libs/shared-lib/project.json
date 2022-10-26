@@ -1,4 +1,5 @@
 {
+  "name": "shared-lib",
   "projectType": "library",
   "sourceRoot": "libs/shared-lib/src",
   "prefix": "tks",

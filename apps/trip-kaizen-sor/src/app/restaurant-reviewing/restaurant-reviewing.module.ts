@@ -11,16 +11,14 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
-import { UiModule } from '@trip-kaizen-sor-workspace/shared-lib';
 import { RouterModule } from '@angular/router';
 import { RESTAURANT_REVIEWING_ROUTES } from './restaurant-reviewing.routes';
+import { RestaurantSearchLibModule } from '@trip-kaizen-sor-workspace/restaurant-search-lib';
 
 @NgModule({
   declarations: [
     RestaurantReviewingComponent,
-    RestaurantSearchComponent,
-    RestaurantCardComponent,
+    RestaurantSearchComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +31,7 @@ import { RESTAURANT_REVIEWING_ROUTES } from './restaurant-reviewing.routes';
     MatButtonModule,
     MatCardModule,
     FormsModule,
-    UiModule
+    RestaurantSearchLibModule
   ],
 })
 export class RestaurantReviewingModule {}

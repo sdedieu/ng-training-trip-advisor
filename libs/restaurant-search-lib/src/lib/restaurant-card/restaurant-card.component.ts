@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Restaurant } from '../models/restaurant';
 
 type RestaurantDisplay = Restaurant & { euros: number[], stars: number[] };
@@ -22,7 +20,10 @@ export class RestaurantCardComponent implements OnInit {
  $restaurant!: RestaurantDisplay;
 
   constructor() {
+    // empty
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // empty
+  }
 }

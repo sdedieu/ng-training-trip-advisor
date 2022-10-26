@@ -1,4 +1,5 @@
 {
+  "name": "trip-kaizen-sor",
   "projectType": "application",
   "sourceRoot": "apps/trip-kaizen-sor/src",
   "prefix": "tks",
