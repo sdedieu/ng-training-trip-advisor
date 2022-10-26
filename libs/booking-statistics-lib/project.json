@@ -1,11 +1,14 @@
 {
+  "name": "booking-statistics-lib",
   "projectType": "library",
   "sourceRoot": "libs/booking-statistics-lib/src",
   "prefix": "trip-kaizen-sor-workspace",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/booking-statistics-lib"],
+      "outputs": [
+        "coverage/libs/booking-statistics-lib"
+      ],
       "options": {
         "jestConfig": "libs/booking-statistics-lib/jest.config.ts",
         "passWithNoTests": true

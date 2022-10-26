@@ -1,4 +1,5 @@
 import { Route } from "@angular/router";
+import { loadRemoteModule } from "@angular-architects/module-federation"
 
 export const APP_ROUTES: Route[] = [
     {
@@ -8,6 +9,14 @@ export const APP_ROUTES: Route[] = [
     {
         path: 'restaurants',
         loadChildren: () => import('./restaurant-reviewing/restaurant-reviewing.module').then(m => m.RestaurantReviewingModule)
+    },
+    {
+        path: 'hotels',
+        loadChildren: () => loadRemoteModule({
+            type:'module',
+            remoteEntry:'http://localhost:4201/remoteEntry.js',
+            exposedModule:'./module'
+        }).then(m => m.HotelBookingModule)
     },
     {
         path: '',

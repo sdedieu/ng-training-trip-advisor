@@ -1,11 +1,14 @@
 {
+  "name": "hotel-search-lib",
   "projectType": "library",
   "sourceRoot": "libs/hotel-search-lib/src",
   "prefix": "tks",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/hotel-search-lib"],
+      "outputs": [
+        "coverage/libs/hotel-search-lib"
+      ],
       "options": {
         "jestConfig": "libs/hotel-search-lib/jest.config.ts",
         "passWithNoTests": true
