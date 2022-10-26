@@ -26,7 +26,7 @@
     "immutable": "^4.1.0",
     "ngx-infinite-scroll": "^14.0.0",
     "plotly.js-dist": "^2.16.1",
-    "rxjs": "~7.4.0",
+    "rxjs": "~7.5.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
