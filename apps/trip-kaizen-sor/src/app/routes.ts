@@ -1,4 +1,5 @@
-import { Route } from "@angular/router";
+import { Route, RouterModule } from "@angular/router";
+import { importProvidersFrom } from '@angular/core'
 
 export const APP_ROUTES: Route[] = [
     {
@@ -7,7 +8,7 @@ export const APP_ROUTES: Route[] = [
     },
     {
         path: 'restaurants',
-        loadChildren: () => import('./restaurant-reviewing/restaurant-reviewing.module').then(m => m.RestaurantReviewingModule)
+        loadComponent: () => import('./restaurant-reviewing/restaurant-reviewing.component').then(m => m.RestaurantReviewingComponent)
     },
     {
         path: '',

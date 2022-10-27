@@ -1,9 +1,32 @@
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, catchError, debounceTime, Observable, of, switchMap, tap } from 'rxjs';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BehaviorSubject, debounceTime, Observable, of, switchMap, tap } from 'rxjs';
 import { Restaurant } from '../models/restaurant';
+import { RestaurantCardComponent } from '../restaurant-card/restaurant-card.component';
 
 @Component({
   selector: 'tks-restaurant-search',
+  standalone: true,
+  imports: [
+    NgIf,
+    NgFor,
+    AsyncPipe,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    FormsModule,
+    MatProgressSpinnerModule,
+    RestaurantCardComponent
+  ],
   templateUrl: './restaurant-search.component.html',
   styleUrls: ['./restaurant-search.component.css'],
 })

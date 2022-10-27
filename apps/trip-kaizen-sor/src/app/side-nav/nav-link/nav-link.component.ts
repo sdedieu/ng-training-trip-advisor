@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { RouterModule } from '@angular/router';
 
 export interface NavLink {
   name: string;
@@ -8,6 +11,12 @@ export interface NavLink {
 
 @Component({
   selector: 'tks-nav-link',
+  standalone: true,
+  imports: [
+    RouterModule, 
+    MatListModule,
+    MatIconModule
+  ],
   templateUrl: './nav-link.component.html',
   styleUrls: ['./nav-link.component.css'],
 })
