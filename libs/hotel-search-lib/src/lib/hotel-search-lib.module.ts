@@ -17,6 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedLibModule, UiModule } from '@trip-kaizen-sor-workspace/shared-lib';
 import { HotelSearchService } from './services/hotel-search.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import * as fromHotel from './hotel';
 
 @NgModule({
   providers: [
@@ -36,7 +39,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatCardModule,
     FormsModule,
     UiModule,
-    SharedLibModule
+    SharedLibModule,
+    EffectsModule.forFeature([fromHotel.HotelEffects]),
+    StoreModule.forFeature(fromHotel.hotelsFeatureKey, fromHotel.reducer)
   ],
   declarations: [HotelCardComponent, HotelSearchComponent],
   exports: [HotelCardComponent, HotelSearchComponent],

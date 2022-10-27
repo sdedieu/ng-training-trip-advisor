@@ -11,7 +11,7 @@
     </section>
 </div>
 <div class="grid" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
-    <ng-container *ngIf="hotels$ | async as hotels">
+ <ng-container *ngIf="hotels$ | async as hotels">
         <tks-hotel-card *ngFor="let hotel of hotels" [hotel]="hotel"></tks-hotel-card>
     </ng-container>
 </div>
