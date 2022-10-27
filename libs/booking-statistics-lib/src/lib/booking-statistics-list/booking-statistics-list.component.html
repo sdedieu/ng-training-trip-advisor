@@ -1,12 +1,4 @@
-
-<div class="card">
-    <h2>{{ type === 'restaurant' ? 'Restaurants' : 'Hotel'}}</h2>
-    <section class="search-section">
-        <mat-form-field class="search-form-field" appearance="fill">
-            <mat-label>Customer's name</mat-label>
-            <input matInput type="text" [(ngModel)]="customerName"  (keyup.enter)="addToList(); customerName = ''">
-        </mat-form-field>
-    </section>
-    <div *ngIf="bookings?.length === 0">Empty List</div>
-    <trip-kaizen-sor-workspace-booking-statistics-card *ngFor="let booking of bookings" [booking]="booking"></trip-kaizen-sor-workspace-booking-statistics-card>
-</div>
+<div *ngIf="bookings?.size === 0">Empty List</div>
+<cdk-virtual-scroll-viewport itemSize="5" class="viewport">
+<trip-kaizen-sor-workspace-booking-statistics-card *cdkVirtualFor="let booking of bookings" [booking]="booking"></trip-kaizen-sor-workspace-booking-statistics-card>
+</cdk-virtual-scroll-viewport>

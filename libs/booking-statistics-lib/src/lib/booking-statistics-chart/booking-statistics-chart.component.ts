@@ -1,26 +1,29 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, NgZone, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Booking } from '@trip-kaizen-sor-workspace/shared-lib';
 import { Subject, Observable, EMPTY, BehaviorSubject } from 'rxjs';
 import { map, takeUntil, switchMap } from 'rxjs/operators';
 import { BookingStatisticsService } from '../services/booking-statistics.service';
+import { List } from 'immutable';
 
 declare const Plotly: any;
 
 @Component({
   selector: 'trip-kaizen-sor-workspace-booking-statistics-chart',
   templateUrl: './booking-statistics-chart.component.html',
-  styleUrls: ['./booking-statistics-chart.component.css']
+  styleUrls: ['./booking-statistics-chart.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookingStatisticsChartComponent implements OnInit, OnDestroy {
 
   private _bookingStatisticsService =  inject(BookingStatisticsService);
+  private _zone = inject(NgZone);
   private _destroy$ = new Subject<void>();
 
-  restaurantBookings$: Observable<Booking[]> = EMPTY;
-  hotelBookings$: Observable<Booking[]> = EMPTY;
+  restaurantBookings$: Observable<List<Booking>> = EMPTY;
+  hotelBookings$: Observable<List<Booking>> = EMPTY;
 
-  addedRestaurants$ = new BehaviorSubject<Booking[]>([])
-  addedHotels$ = new BehaviorSubject<Booking[]>([])
+  addedRestaurants$ = new BehaviorSubject<List<Booking>>(List())
+  addedHotels$ = new BehaviorSubject<List<Booking>>(List())
 
   ngOnInit(): void {
    const bookings$ = this._bookingStatisticsService.fetchAll();
@@ -49,15 +52,15 @@ export class BookingStatisticsChartComponent implements OnInit, OnDestroy {
     this._destroy$.complete()
   }
 
-  private _buildRestaurantBookingsList(bookings: Booking[]): Booking[] {
+  private _buildRestaurantBookingsList(bookings: List<Booking>): List<Booking >{
     return bookings.filter(b => b.type === 'restaurant');
   }
 
-  private _buildHotelBookingsList(bookings: Booking[]): Booking[] {
+  private _buildHotelBookingsList(bookings: List<Booking>): List<Booking >{
     return bookings.filter(b => b.type === 'hotel');
   }
 
-  private _buildChart(bookings: Booking[]) {
+  private _buildChart(bookings: List<Booking>) {
    const {data, layout, config} = {
       data: [ this._buildData(bookings) ],
       layout: { 
@@ -67,10 +70,10 @@ export class BookingStatisticsChartComponent implements OnInit, OnDestroy {
       config: {responsive: true}
     }
 
-    Plotly.newPlot('chart', data, layout, config);
+    this._zone.runOutsideAngular(() => Plotly.newPlot('chart', data, layout, config));
   }
 
-  private _buildData(bookings: Booking[]) {
+  private _buildData(bookings: List<Booking>) {
     const trace: any = {
       type: 'bar',
       x: [],

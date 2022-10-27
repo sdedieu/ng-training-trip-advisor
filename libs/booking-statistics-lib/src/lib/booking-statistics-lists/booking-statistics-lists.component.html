@@ -1,0 +1,6 @@
+
+<div class="card">
+    <h2>{{ type === 'restaurant' ? 'Restaurants' : 'Hotel'}}</h2>
+    <trip-kaizen-sor-workspace-booking-statistics-input [type]="type" (add)="add.emit($event)"></trip-kaizen-sor-workspace-booking-statistics-input>
+    <trip-kaizen-sor-workspace-booking-statistics-list [bookings]="bookings"></trip-kaizen-sor-workspace-booking-statistics-list>
+</div>
