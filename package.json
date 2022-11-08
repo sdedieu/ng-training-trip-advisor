@@ -24,7 +24,7 @@
     "@angular/router": "~14.2.0",
     "@nrwl/angular": "15.0.2",
     "immutable": "^4.1.0",
-    "ngx-infinite-scroll": "^13.0.2",
+    "ngx-infinite-scroll": "^14.0.1",
     "plotly.js-dist": "^2.16.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
